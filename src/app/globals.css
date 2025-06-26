@@ -10,6 +10,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-poppins: var(--font-poppins)
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +24,13 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.filter-blue {
+  filter: brightness(0) saturate(100%) invert(14%) sepia(97%) saturate(7470%) hue-rotate(203deg) brightness(94%) contrast(91%);
+}
+ 
+li:hover{
+  color: blue;
+  cursor: pointer;
 }
