@@ -1,12 +1,14 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
-import { Menu, X } from 'lucide-react' // Icon for mobile toggle
+import { Menu, X } from 'lucide-react'
 
 const Navbar = () => {
     const router = useRouter()
     const [menuOpen, setMenuOpen] = useState(false)
+    const [isVisible, setIsVisible] = useState(true)
+    const [lastScrollY, setLastScrollY] = useState(0)
 
     const menuItems = [
         { name: 'About Us', path: '/about' },
@@ -19,8 +21,27 @@ const Navbar = () => {
         router.push('/contact-us')
     }
 
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                setIsVisible(false) // scroll down: hide
+            } else {
+                setIsVisible(true) // scroll up: show
+            }
+            setLastScrollY(currentScrollY)
+        }
+
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [lastScrollY])
+
     return (
-        <nav className='font-poppins bg-white shadow-md'>
+        <nav
+            className={`font-poppins bg-white shadow-md fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ${
+                isVisible ? 'translate-y-0' : '-translate-y-full'
+            }`}
+        >
             <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-4 flex items-center justify-between'>
                 {/* Logo */}
                 <div
