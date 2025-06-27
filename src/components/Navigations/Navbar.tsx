@@ -4,6 +4,9 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { FaHandHoldingWater } from "react-icons/fa";
+import { LiaVideoSolid } from "react-icons/lia";
+import { IoNewspaperOutline } from "react-icons/io5";
+import { FaPeopleGroup } from "react-icons/fa6";
 
 const Navbar = () => {
   const router = useRouter();
@@ -29,7 +32,8 @@ const Navbar = () => {
         {
           name: "Population Tracker",
           path: "/population-tracker",
-          icon: <FaHandHoldingWater />
+          icon: <FaPeopleGroup />
+
 
         }
       ]
@@ -49,11 +53,14 @@ const Navbar = () => {
         },
         {
           name: "Pitstop",
-          path: "/pitstop"
+          path: "/pitstop",
+          icon: <IoNewspaperOutline />
+
         },
         {
           name: "Videos",
-          path: "/videos"
+          path: "/videos",
+          icon: <LiaVideoSolid />
         }
       ]
     },
