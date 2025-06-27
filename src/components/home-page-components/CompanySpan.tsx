@@ -4,7 +4,7 @@ import React from "react";
 const companyLocaionsInfo = [
   {
     image: "/company-span/countries-bg.jpg",
-    total: 2,
+    total: 1,
     description:
       "With our innovation center in Nepal and business center in Dubai, we continue to expand our horizons",
   },
@@ -54,7 +54,7 @@ const CompanySpan = () => {
           20+ years of driving digital transformation
         </h1>
 
-        <p className="text-lg md:text-xl text-gray-800  text-justify">
+        <p className="text-lg md:text-xl text-gray-800  text-justify px-60">
           For over two decades, F1Soft has been at the forefront of developing
           and delivering impactful digital solutions that reshape the financial
           landscape. From pioneering digital payments to building robust
@@ -75,7 +75,6 @@ const CompanySpan = () => {
           </button>
         </div>
       </div>
-
       {/* Cards Section */}
       <div className="flex flex-col md:flex-row  justify-center gap-6">
         {cardData.map((item, index) => (
@@ -98,5 +97,4 @@ const CompanySpan = () => {
     </div>
   );
 };
-
 export default CompanySpan;
